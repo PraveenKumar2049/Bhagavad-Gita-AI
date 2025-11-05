@@ -1,0 +1,81 @@
+HOW TO RUN - BHAGAVAD GITA AI
+
+Thank you for checking out this project.  
+Follow the steps below to set up and run Bhagavad Gita AI on your computer.
+
+------------------------------------------------------------
+1. CLONE THE REPOSITORY
+------------------------------------------------------------
+Open your terminal and run:
+    git clone https://github.com/PraveenKumar2049/Bhagavad-Gita-AI.git
+    cd Bhagavad-Gita-AI
+
+------------------------------------------------------------
+2. CREATE A VIRTUAL ENVIRONMENT (RECOMMENDED)
+------------------------------------------------------------
+    python -m venv venv
+    source venv/bin/activate        (On Windows: venv\Scripts\activate)
+
+------------------------------------------------------------
+3. INSTALL DEPENDENCIES
+------------------------------------------------------------
+    pip install -r requirements.txt
+
+------------------------------------------------------------
+4. PREPARE THE DATASET
+------------------------------------------------------------
+Run the following command:
+    python Dataset.py
+
+This script downloads and cleans the Bhagavad Gita dataset
+and saves it as "bhagavad_gita_clean.json" inside the data/ folder.
+
+------------------------------------------------------------
+5. CREATE THE EMBEDDINGS
+------------------------------------------------------------
+Run:
+    python create_embeddings.py
+
+This script will:
+ - Generate vector embeddings for every verse
+ - Create a FAISS index for fast semantic search
+ - Save the files "faiss_index.bin" and "verse_map.json" in the embeddings/ folder
+
+------------------------------------------------------------
+6. RUN KRISHNA AI
+------------------------------------------------------------
+Make sure you have Ollama installed and running locally.
+Also, make sure the model "phi3:3.8b" is installed in Ollama.
+
+Then run:
+    python Generate_response.py
+
+This will start a Gradio web app.
+Open your browser and go to:
+    http://localhost:7860
+
+You can now ask questions like:
+    "What does the Gita say about anger?"
+    "How can I find peace of mind?"
+and Krishna AI will respond with verses and explanations.
+
+------------------------------------------------------------
+7. REQUIREMENTS
+------------------------------------------------------------
+ - Python 3.8 or higher
+ - Internet connection (for first-time downloads)
+ - Ollama installed and running locally
+
+------------------------------------------------------------
+PROJECT SUMMARY
+------------------------------------------------------------
+This project uses:
+ - Sentence Transformers (all-MiniLM-L6-v2) to create semantic embeddings
+ - FAISS for fast similarity search
+ - A local LLM (phi3:3.8b via Ollama) to generate contextual answers
+ - Gradio for the chat interface
+
+------------------------------------------------------------
+AUTHOR
+------------------------------------------------------------
+Project by Praveen Kumar  
